@@ -1,0 +1,355 @@
+/* ===== Contact — Kỳ Linh Food theme ===== */
+:root {
+    --kl-contact-green: #1b4d2e;
+    --kl-contact-green-dark: #143d24;
+    --kl-contact-green-light: #e8f3ec;
+    --kl-contact-border: #e8ece9;
+    --kl-contact-muted: #666;
+}
+
+/* Hero */
+.kl-contact {
+    --kl-green: #1b4d2e;
+}
+
+.kl-contact__hero {
+    padding: 28px 0 32px;
+    background: #fff;
+    border-bottom: 1px solid #eef1ef;
+}
+
+.kl-contact__breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 16px;
+}
+
+.kl-contact__breadcrumb a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.kl-contact__breadcrumb a:hover {
+    color: var(--kl-contact-green);
+}
+
+.kl-contact__breadcrumb span:last-child {
+    color: var(--kl-contact-green);
+    font-weight: 600;
+}
+
+.kl-contact__title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--kl-contact-green);
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.kl-contact__subtitle {
+    font-size: 14px;
+    color: var(--kl-contact-muted);
+    margin: 0;
+    max-width: 480px;
+    line-height: 1.6;
+}
+
+/* Main layout */
+.kl-contact__main,
+.layout-contact {
+    padding: 40px 0 56px;
+    background: #fafbfa;
+    margin-bottom: 0;
+}
+
+.kl-contact__layout {
+    align-items: stretch;
+}
+
+.kl-contact__card {
+    background: #fff;
+    border: 1px solid var(--kl-contact-border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(27, 77, 46, 0.06);
+}
+
+.kl-contact__card:last-child {
+    margin-bottom: 0;
+}
+
+/* Company info */
+.layout-contact .des_foo {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+}
+
+.layout-contact .des_foo span {
+    color: var(--kl-contact-green);
+    font-weight: 700;
+}
+
+.layout-contact .contact {
+    margin-bottom: 20px;
+    background: transparent;
+}
+
+.layout-contact .contact h4,
+.layout-contact .form-contact h4 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--kl-contact-green);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--kl-contact-border);
+}
+
+.layout-contact .contact .info-contact {
+    padding: 0;
+    border-radius: 0;
+}
+
+.layout-contact .contact .info-contact .group-address {
+    margin-top: 4px;
+}
+
+.layout-contact .contact .info-contact .group-address ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.layout-contact .contact .info-contact .group-address ul li {
+    margin-bottom: 16px;
+    position: relative;
+    width: 100%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.layout-contact .contact .info-contact .group-address ul li .icon {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--kl-contact-green-light);
+    border: none;
+    border-radius: 50%;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.layout-contact .contact .info-contact .group-address ul li .icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.layout-contact .contact .info-contact .group-address ul li .icon svg path {
+    fill: var(--kl-contact-green);
+}
+
+.layout-contact .contact .info-contact .group-address ul li .info {
+    flex: 1;
+    min-width: 0;
+}
+
+.layout-contact .contact .info-contact .group-address ul li b {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--kl-contact-green);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+}
+
+.layout-contact .contact .info-contact .group-address ul li span,
+.layout-contact .contact .info-contact .group-address ul li a {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.layout-contact .contact .info-contact .group-address ul li a:hover {
+    color: var(--kl-contact-green);
+}
+
+.layout-contact .contact .info-contact .group-address .see-store {
+    color: #fff;
+    background-color: var(--kl-contact-green);
+    line-height: 38px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.layout-contact .contact .info-contact .group-address .see-store:hover {
+    background-color: var(--kl-contact-green-dark);
+}
+
+/* Form */
+.layout-contact .form-contact {
+    background: transparent;
+}
+
+.layout-contact .form-contact .content-form {
+    display: block;
+    font-size: 14px;
+    color: var(--kl-contact-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+.layout-contact .form-contact .group_contact {
+    padding: 0;
+    border-radius: 0;
+}
+
+.layout-contact .form-contact .group_contact input,
+.layout-contact .form-contact .group_contact textarea {
+    border: 1px solid var(--kl-contact-border);
+    width: 100%;
+    margin-bottom: 12px;
+    outline: none;
+    font-size: 14px;
+    border-radius: 10px;
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.layout-contact .form-contact .group_contact input:focus,
+.layout-contact .form-contact .group_contact textarea:focus {
+    border-color: var(--kl-contact-green);
+    box-shadow: 0 0 0 3px rgba(27, 77, 46, 0.1);
+}
+
+.layout-contact .form-contact .group_contact input {
+    padding: 12px 16px;
+    height: auto;
+}
+
+.layout-contact .form-contact .group_contact textarea {
+    padding: 12px 16px;
+    min-height: 120px;
+    resize: vertical;
+}
+
+.layout-contact .form-contact .group_contact .btn-lienhe {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--kl-contact-green);
+    color: #fff;
+    border: none;
+    padding: 0 32px;
+    min-height: 46px;
+    line-height: 1;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.layout-contact .form-contact .group_contact .btn-lienhe:hover {
+    background-color: var(--kl-contact-green-dark);
+    transform: translateY(-1px);
+}
+
+.kl-contact__alert {
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 16px !important;
+}
+
+/* Map */
+.kl-contact__map,
+#contact_map {
+    height: 100%;
+    min-height: 480px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--kl-contact-border);
+    box-shadow: 0 4px 20px rgba(27, 77, 46, 0.06);
+    background: #eee;
+}
+
+#contact_map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    border: 0;
+    border-radius: 0;
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .layout-contact .form-contact {
+        margin-bottom: 0;
+    }
+
+    .kl-contact__map,
+    #contact_map,
+    #contact_map iframe {
+        min-height: 360px;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 767px) {
+    .kl-contact__title {
+        font-size: 24px;
+    }
+
+    .kl-contact__hero {
+        padding: 20px 0 24px;
+    }
+
+    .kl-contact__main,
+    .layout-contact {
+        padding: 28px 0 40px;
+    }
+
+    .kl-contact__card {
+        padding: 18px 16px;
+        border-radius: 12px;
+    }
+
+    .layout-contact .contact .info-contact .group-address ul li {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .kl-contact__map,
+    #contact_map,
+    #contact_map iframe {
+        min-height: 300px;
+    }
+}
