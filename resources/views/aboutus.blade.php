@@ -38,11 +38,11 @@
     }
 
     $facilities = [
-        ['icon' => 'area', 'label' => 'Diện tích nhà xưởng', 'value' => '2.500m²'],
-        ['icon' => 'process', 'label' => 'Khu vực sơ chế – chế biến', 'value' => '1.200m²'],
-        ['icon' => 'warehouse', 'label' => 'Kho bảo quản đạt chuẩn', 'value' => '1.000m²'],
-        ['icon' => 'cold', 'label' => 'Hệ thống kho lạnh công suất lớn', 'value' => ''],
-        ['icon' => 'pack', 'label' => 'Khu vực đóng gói – đóng thùng hiện đại', 'value' => ''],
+        ['icon' => 'area', 'label' => 'Diện tích nhà xưởng, sân bãi', 'value' => '200m²'],
+        ['icon' => 'process', 'label' => 'Khu vực sơ chế', 'value' => '40m²'],
+        ['icon' => 'warehouse', 'label' => 'Khu vực sản xuất', 'value' => '30m²'],
+        ['icon' => 'cold', 'label' => 'Khu vực đóng gói', 'value' => '20m²'],
+        ['icon' => 'pack', 'label' => 'Kho mát, kho lạnh', 'value' => '20m²'],
     ];
 
     $equipFeatures = [
