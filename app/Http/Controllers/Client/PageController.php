@@ -25,6 +25,7 @@ use App\models\Promotion;
 use App\models\website\Video;
 use App\models\website\ProductProfileCategory;
 use App\models\website\ProductProfileDocument;
+use App\models\website\ProfileAttestation;
 use App\Notifications\BillNotification;
 use App\User;
 use Mail;
@@ -37,6 +38,11 @@ use App\models\website\ProcessPageSetting;
 use App\models\website\ProcessCommitment;
 use App\models\website\WhyChoose;
 use App\models\website\CoreValue;
+use App\models\website\Equipment;
+use App\models\website\AboutHrSetting;
+use App\models\website\AboutHrItem;
+use App\models\website\AboutTransportSetting;
+use App\models\website\AboutTransportItem;
 class PageController extends Controller
 {
     private function getNotificationEmails()
@@ -231,6 +237,29 @@ class PageController extends Controller
         $data['gioithieu'] = PageContent::where(['slug'=>'gioi-thieu','language'=>'vi'])->first(['id','title','content','image']);
         $data['whyChoose'] = WhyChoose::where('status', 1)->orderBy('sort')->orderBy('id')->get();
         $data['coreValues'] = CoreValue::where('status', 1)->orderBy('sort')->orderBy('id')->get();
+        $data['equipments'] = Equipment::where('status', 1)->orderBy('sort')->orderBy('id')->get();
+        $data['hrSetting'] = AboutHrSetting::first();
+        $data['hrFeatures'] = AboutHrItem::where('type', AboutHrItem::TYPE_FEATURE)
+            ->where('status', 1)
+            ->orderBy('sort')
+            ->orderBy('id')
+            ->get();
+        $data['hrTraining'] = AboutHrItem::where('type', AboutHrItem::TYPE_TRAINING)
+            ->where('status', 1)
+            ->orderBy('sort')
+            ->orderBy('id')
+            ->get();
+        $data['transportSetting'] = AboutTransportSetting::first();
+        $data['transportFeatures'] = AboutTransportItem::where('type', AboutTransportItem::TYPE_FEATURE)
+            ->where('status', 1)
+            ->orderBy('sort')
+            ->orderBy('id')
+            ->get();
+        $data['transportBadges'] = AboutTransportItem::where('type', AboutTransportItem::TYPE_BADGE)
+            ->where('status', 1)
+            ->orderBy('sort')
+            ->orderBy('id')
+            ->get();
         $data['ReviewCus'] = ReviewCus::where(['status'=>1])->get();
         return view('aboutus',$data);
     }
@@ -368,22 +397,10 @@ class PageController extends Controller
             ->orderBy('id')
             ->get();
 
-        $documents = ProductProfileDocument::where('status', 1)
-            ->whereHas('category', function ($query) {
-                $query->where('status', 1);
-            })
-            ->with('category')
-            ->get()
-            ->map(function ($doc) {
-                $images = json_decode($doc->images, true);
-                $doc->image_list = is_array($images) ? array_values(array_filter($images)) : [];
-                return $doc;
-            })
-            ->filter(function ($doc) {
-                return count($doc->image_list) > 0;
-            });
-
-        $data['randomProfileDocs'] = $documents->shuffle()->take(5)->values();
+        $data['profileAttestations'] = ProfileAttestation::where('status', 1)
+            ->orderBy('sort')
+            ->orderBy('id')
+            ->get();
 
         return view('profile.index', $data);
     }

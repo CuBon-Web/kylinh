@@ -9,6 +9,100 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 @endsection
 @section('js')
+<script>
+(function () {
+    var modal = document.getElementById('klProfileLightbox');
+    if (!modal) return;
+
+    var imgEl = modal.querySelector('.kl-profile-lightbox__img');
+    var captionEl = modal.querySelector('.kl-profile-lightbox__caption');
+    var counterEl = modal.querySelector('.kl-profile-lightbox__counter');
+    var prevBtn = modal.querySelector('[data-action="prev"]');
+    var nextBtn = modal.querySelector('[data-action="next"]');
+    var closeEls = modal.querySelectorAll('[data-action="close"]');
+    var items = [];
+    var currentIndex = 0;
+
+    function render() {
+        if (!items.length) return;
+        var item = items[currentIndex];
+        imgEl.src = item.src;
+        imgEl.alt = item.alt || '';
+        captionEl.textContent = item.caption || '';
+        counterEl.textContent = (currentIndex + 1) + ' / ' + items.length;
+        prevBtn.disabled = currentIndex <= 0;
+        nextBtn.disabled = currentIndex >= items.length - 1;
+    }
+
+    function openAt(index) {
+        if (!items.length) return;
+        currentIndex = index;
+        render();
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        imgEl.src = '';
+    }
+
+    function buildItems() {
+        items = [];
+        document.querySelectorAll('.kl-profile__cert-zoom[data-lightbox-index]').forEach(function (el) {
+            items.push({
+                src: el.getAttribute('data-src') || '',
+                alt: el.getAttribute('data-alt') || '',
+                caption: el.getAttribute('data-caption') || '',
+            });
+        });
+    }
+
+    document.addEventListener('click', function (e) {
+        var trigger = e.target.closest('.kl-profile__cert-zoom');
+        if (!trigger) return;
+        e.preventDefault();
+        buildItems();
+        var index = parseInt(trigger.getAttribute('data-lightbox-index'), 10);
+        if (isNaN(index)) index = 0;
+        openAt(index);
+    });
+
+    prevBtn.addEventListener('click', function () {
+        if (currentIndex > 0) {
+            currentIndex--;
+            render();
+        }
+    });
+
+    nextBtn.addEventListener('click', function () {
+        if (currentIndex < items.length - 1) {
+            currentIndex++;
+            render();
+        }
+    });
+
+    closeEls.forEach(function (el) {
+        el.addEventListener('click', close);
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (!modal.classList.contains('is-open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft' && currentIndex > 0) {
+            currentIndex--;
+            render();
+        }
+        if (e.key === 'ArrowRight' && currentIndex < items.length - 1) {
+            currentIndex++;
+            render();
+        }
+    });
+})();
+</script>
 @endsection
 @section('content')
 @php
@@ -18,7 +112,7 @@
     }
 
     $profileCategories = isset($profileCategories) ? $profileCategories : collect();
-    $randomProfileDocs = isset($randomProfileDocs) ? $randomProfileDocs : collect();
+    $profileAttestations = isset($profileAttestations) ? $profileAttestations : collect();
 
     $heroFeatures = [
         ['label' => 'Nguồn gốc rõ ràng', 'image' => '/frontend/images/feature-origin.png'],
@@ -132,26 +226,31 @@
                     </a>
                 </div>
                 <div class="kl-profile__certs-gallery">
-                    @forelse ($randomProfileDocs as $doc)
-                    @php
-                        $certImage = !empty($doc->image_list[0]) ? $doc->image_list[0] : '';
-                        $certLabel = $doc->title ?: ($doc->category ? $doc->category->title : '');
-                        $certUrl = ($doc->category && !empty($doc->category->slug))
-                            ? route('profileCategoryDetail', ['slug' => $doc->category->slug])
-                            : 'javascript:void(0)';
-                    @endphp
-                    <a href="{{ $certUrl }}" class="kl-profile__cert-item" title="{{ $certLabel }}">
+                    @php $certLightboxIndex = 0; @endphp
+                    @forelse ($profileAttestations as $item)
+                    <div class="kl-profile__cert-item" title="{{ $item->title }}">
                         <div class="kl-profile__cert-frame">
-                            @if ($certImage)
-                            <img src="{{ url($certImage) }}" alt="{{ $certLabel }}">
+                            @if (!empty($item->image))
+                            <button
+                                type="button"
+                                class="kl-profile__cert-zoom"
+                                data-lightbox-index="{{ $certLightboxIndex }}"
+                                data-src="{{ url($item->image) }}"
+                                data-alt="{{ $item->title }}"
+                                data-caption="{{ $item->title }}"
+                                aria-label="Xem ảnh {{ $item->title }}"
+                            >
+                                <img src="{{ url($item->image) }}" alt="{{ $item->title }}">
+                            </button>
+                            @php $certLightboxIndex++; @endphp
                             @else
                             <span class="kl-profile__cert-placeholder" aria-hidden="true">
                                 <svg viewBox="0 0 48 64" fill="none"><rect x="4" y="4" width="40" height="56" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M12 16h24M12 24h20M12 32h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                             </span>
                             @endif
                         </div>
-                        <p class="kl-profile__cert-label">{{ $certLabel }}</p>
-                    </a>
+                        <p class="kl-profile__cert-label">{{ $item->title }}</p>
+                    </div>
                     @empty
                     <div class="kl-profile__cert-empty" style="grid-column:1/-1;text-align:center;color:#666;font-size:13px;padding:20px 0;">
                         Chưa có hồ sơ nào để hiển thị.
@@ -179,5 +278,19 @@
             </div>
         </div>
     </section>
+</div>
+
+<div id="klProfileLightbox" class="kl-profile-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Xem ảnh chứng nhận">
+    <div class="kl-profile-lightbox__backdrop" data-action="close"></div>
+    <div class="kl-profile-lightbox__panel">
+        <button type="button" class="kl-profile-lightbox__close" data-action="close" aria-label="Đóng">&times;</button>
+        <button type="button" class="kl-profile-lightbox__nav kl-profile-lightbox__nav--prev" data-action="prev" aria-label="Ảnh trước">‹</button>
+        <figure class="kl-profile-lightbox__figure">
+            <img class="kl-profile-lightbox__img" src="" alt="">
+            <figcaption class="kl-profile-lightbox__caption"></figcaption>
+            <div class="kl-profile-lightbox__counter"></div>
+        </figure>
+        <button type="button" class="kl-profile-lightbox__nav kl-profile-lightbox__nav--next" data-action="next" aria-label="Ảnh sau">›</button>
+    </div>
 </div>
 @endsection

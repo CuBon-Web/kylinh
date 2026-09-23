@@ -115,7 +115,6 @@ Quy trình cung ứng | {{ $setting->company }}
                                 @endforeach
                             </ul>
                             @endif
-                            <a href="{{ $detailLink }}" class="kl-process__step-btn" title="Xem chi tiết {{ $step->title }}">Xem chi tiết</a>
                         </div>
                     </div>
                     @endforeach

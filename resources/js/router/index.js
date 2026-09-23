@@ -261,6 +261,30 @@ let _routers = [
                 meta: { requiresAuth: true },
             },
             {
+                name: 'equipment',
+                path: '/equipment',
+                component: _import('website/equipment'),
+                meta: { requiresAuth: true },
+            },
+            {
+                name: 'aboutHr',
+                path: '/about-hr',
+                component: _import('website/aboutHr'),
+                meta: { requiresAuth: true },
+            },
+            {
+                name: 'aboutTransport',
+                path: '/about-transport',
+                component: _import('website/aboutTransport'),
+                meta: { requiresAuth: true },
+            },
+            {
+                name: 'profileAttestation',
+                path: '/profile-attestation',
+                component: _import('website/profileAttestation'),
+                meta: { requiresAuth: true },
+            },
+            {
                 name: 'processStep',
                 path: '/process-step',
                 component: _import('website/processStep'),

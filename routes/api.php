@@ -230,6 +230,14 @@ Route::group(['namespace'=>'Api','middleware'=>'auth:api'],function(){
 		Route::get('list-why-choose','WhyChooseController@list')->middleware('rbac.permission:website.view');
 		Route::post('core-value','CoreValueController@createOrUpdate')->middleware('rbac.permission:website.update');
 		Route::get('list-core-value','CoreValueController@list')->middleware('rbac.permission:website.view');
+		Route::post('equipment','EquipmentController@createOrUpdate')->middleware('rbac.permission:website.update');
+		Route::get('list-equipment','EquipmentController@list')->middleware('rbac.permission:website.view');
+		Route::post('about-hr','AboutHrController@createOrUpdate')->middleware('rbac.permission:website.update');
+		Route::get('list-about-hr','AboutHrController@list')->middleware('rbac.permission:website.view');
+		Route::post('about-transport','AboutTransportController@createOrUpdate')->middleware('rbac.permission:website.update');
+		Route::get('list-about-transport','AboutTransportController@list')->middleware('rbac.permission:website.view');
+		Route::post('profile-attestation','ProfileAttestationController@createOrUpdate')->middleware('rbac.permission:website.update');
+		Route::get('list-profile-attestation','ProfileAttestationController@list')->middleware('rbac.permission:website.view');
 		Route::post('process-step','ProcessStepController@createOrUpdate')->middleware('rbac.permission:website.update');
 		Route::get('list-process-step','ProcessStepController@list')->middleware('rbac.permission:website.view');
 		Route::post('faq','FaqController@createOrUpdate')->middleware('rbac.permission:website.update');

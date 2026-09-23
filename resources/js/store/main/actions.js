@@ -206,6 +206,82 @@ export const listCoreValue = ({commit}, opt) => {
     });
 };
 
+export const saveEquipment = ({commit}, opt) => {
+    return new Promise((resolve, reject) => {
+        HTTP.post('/api/website/equipment', opt).then(response => {
+            return resolve(response.data);
+        }).catch(error => {
+            return reject(error);
+        });
+    });
+};
+export const listEquipment = ({commit}, opt) => {
+    return new Promise((resolve, reject) => {
+        HTTP.get('/api/website/list-equipment', opt).then(response => {
+            return resolve(response.data);
+        }).catch(error => {
+            return reject(error);
+        });
+    });
+};
+
+export const saveAboutHr = ({commit}, opt) => {
+    return new Promise((resolve, reject) => {
+        HTTP.post('/api/website/about-hr', opt).then(response => {
+            return resolve(response.data);
+        }).catch(error => {
+            return reject(error);
+        });
+    });
+};
+export const listAboutHr = ({commit}, opt) => {
+    return new Promise((resolve, reject) => {
+        HTTP.get('/api/website/list-about-hr', opt).then(response => {
+            return resolve(response.data);
+        }).catch(error => {
+            return reject(error);
+        });
+    });
+};
+
+export const saveAboutTransport = ({commit}, opt) => {
+    return new Promise((resolve, reject) => {
+        HTTP.post('/api/website/about-transport', opt).then(response => {
+            return resolve(response.data);
+        }).catch(error => {
+            return reject(error);
+        });
+    });
+};
+export const listAboutTransport = ({commit}, opt) => {
+    return new Promise((resolve, reject) => {
+        HTTP.get('/api/website/list-about-transport', opt).then(response => {
+            return resolve(response.data);
+        }).catch(error => {
+            return reject(error);
+        });
+    });
+};
+
+export const saveProfileAttestation = ({commit}, opt) => {
+    return new Promise((resolve, reject) => {
+        HTTP.post('/api/website/profile-attestation', opt).then(response => {
+            return resolve(response.data);
+        }).catch(error => {
+            return reject(error);
+        });
+    });
+};
+export const listProfileAttestation = ({commit}, opt) => {
+    return new Promise((resolve, reject) => {
+        HTTP.get('/api/website/list-profile-attestation', opt).then(response => {
+            return resolve(response.data);
+        }).catch(error => {
+            return reject(error);
+        });
+    });
+};
+
 export const saveProcessStep = ({commit}, opt) => {
     return new Promise((resolve, reject) => {
         HTTP.post('/api/website/process-step', opt).then(response => {

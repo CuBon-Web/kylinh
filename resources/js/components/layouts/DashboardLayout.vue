@@ -121,6 +121,10 @@ export default {
             {
               name: "Danh sách ",
               path: "/product-profile",
+            },
+            {
+              name: "ATTP & chứng nhận",
+              path: "/profile-attestation",
             }
           ],
         },
@@ -199,6 +203,18 @@ export default {
             {
               name: "Giá trị cốt lõi",
               path: "/core-value",
+            },
+            {
+              name: "Trang thiết bị",
+              path: "/equipment",
+            },
+            {
+              name: "Nhân lực (Giới thiệu)",
+              path: "/about-hr",
+            },
+            {
+              name: "Phương tiện vận chuyển",
+              path: "/about-transport",
             },
             {
               name: "Quy trình cung ứng",
@@ -308,6 +324,19 @@ export default {
         path.startsWith("/albumAffter")
       ) {
         return "bannerads.view";
+      }
+      if (
+        path.startsWith("/why-choose") ||
+        path.startsWith("/core-value") ||
+        path.startsWith("/equipment") ||
+        path.startsWith("/about-hr") ||
+        path.startsWith("/about-transport") ||
+        path.startsWith("/profile-attestation") ||
+        path.startsWith("/process-step") ||
+        path.startsWith("/faq") ||
+        path.startsWith("/product-profile")
+      ) {
+        return "website.view";
       }
       if (path.startsWith("/reviewCus")) return "review.view";
       if (path.startsWith("/messcontact")) return "message.view";

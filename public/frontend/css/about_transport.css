@@ -1,0 +1,308 @@
+/* Khối Phương tiện vận chuyển — trang Giới thiệu */
+.kl-transport {
+    position: relative;
+    padding: 8px 0 56px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.kl-transport__panel {
+    position: relative;
+    border: 1.5px solid #4a534d3d;
+    border-radius: 18px;
+    padding: 28px 28px 22px;
+    background: #fff;
+}
+
+.kl-transport__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 28px 36px;
+    align-items: start;
+}
+
+.kl-transport__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 10px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--kl-green, #297c49);
+    line-height: 1.2;
+}
+
+.kl-transport__title-leaf {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.kl-transport__title-leaf img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.kl-transport__subtitle {
+    margin: 0 0 14px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--kl-green, #297c49);
+    line-height: 1.45;
+}
+
+.kl-transport__intro {
+    margin-bottom: 20px;
+}
+
+.kl-transport__intro p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #333;
+}
+
+.kl-transport__intro p:last-child {
+    margin-bottom: 0;
+}
+
+.kl-transport__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.kl-transport__features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.kl-transport__features li:last-child {
+    margin-bottom: 0;
+}
+
+.kl-transport__feature-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--kl-green, #297c49);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.kl-transport__feature-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+}
+
+.kl-transport__feature-title {
+    display: block;
+    margin: 0 0 4px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--kl-green, #297c49);
+    line-height: 1.35;
+}
+
+.kl-transport__feature-desc {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #444;
+}
+
+.kl-transport__footer-note {
+    margin: 22px 0 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.kl-transport__badges {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.kl-transport__badge {
+    text-align: center;
+    padding: 8px 4px;
+}
+
+.kl-transport__badge-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kl-transport__badge-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+}
+
+.kl-transport__badge-label {
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--kl-green, #297c49);
+    line-height: 1.35;
+}
+
+.kl-transport__main-photo {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f3f3f3;
+    margin-bottom: 12px;
+    min-height: 200px;
+}
+
+.kl-transport__main-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    object-fit: cover;
+}
+
+.kl-transport__main-photo--placeholder {
+    min-height: 220px;
+    background: linear-gradient(135deg, #eef4f0 0%, #f8f8f8 100%);
+}
+
+.kl-transport__gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.kl-transport__gallery-item {
+    border-radius: 10px;
+    overflow: hidden;
+    background: #eee;
+    aspect-ratio: 4 / 3;
+}
+
+.kl-transport__gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kl-transport__quote {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 4px 0;
+}
+
+.kl-transport__quote-mark {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    color: var(--kl-green, #297c49);
+    opacity: 0.85;
+}
+
+.kl-transport__quote-mark svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.kl-transport__quote-text {
+    flex: 1;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--kl-green, #297c49);
+    line-height: 1.45;
+}
+
+.kl-transport__quote-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 36px;
+}
+
+.kl-transport__quote-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.kl-transport__leaves {
+    position: absolute;
+    right: 16px;
+    bottom: 8px;
+    width: 90px;
+    height: 70px;
+    pointer-events: none;
+    opacity: 0.22;
+}
+
+.kl-transport__leaves img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .kl-transport__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kl-transport__badges {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 575px) {
+    .kl-transport__panel {
+        padding: 20px 16px;
+    }
+
+    .kl-transport__title {
+        font-size: 20px;
+    }
+
+    .kl-transport__gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .kl-transport__quote {
+        flex-wrap: wrap;
+    }
+}
