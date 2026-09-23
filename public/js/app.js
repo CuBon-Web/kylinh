@@ -15112,11 +15112,10 @@ function _initScrollbar(className) {
         //   name: "Quản lý banner phụ",
         //   path: "/bannerads",
         // },
-        // {
-        //   name: "Quản lý đối tác",
-        //   path: "/partner",
-        // },
         {
+          name: "Quản lý đối tác",
+          path: "/partner"
+        }, {
           name: "Cài đặt chung",
           path: "/setting"
         }, {
