@@ -284,34 +284,7 @@
         </div>
     </section>
 
-    <section class="kl-about__values">
-        <div class="container">
-            <h2 class="kl-about__values-title">Giá trị cốt lõi</h2>
-            <div class="kl-about__values-grid">
-                @forelse ($coreValues as $item)
-                <div class="kl-about__value">
-                    <div class="kl-about__value-icon" aria-hidden="true">
-                        @if (!empty($item->image))
-                        <img src="{{ url($item->image) }}" alt="{{ $item->title }}">
-                        @else
-                        @include('partials.about-icon', ['type' => 'shield'])
-                        @endif
-                    </div>
-                    <h3 class="kl-about__value-title">{{ $item->title }}</h3>
-                    <p class="kl-about__value-desc">{{ $item->description }}</p>
-                </div>
-                @empty
-                <div class="kl-about__value">
-                    <div class="kl-about__value-icon" aria-hidden="true">
-                        @include('partials.about-icon', ['type' => 'shield'])
-                    </div>
-                    <h3 class="kl-about__value-title">An toàn</h3>
-                    <p class="kl-about__value-desc">Đảm bảo vệ sinh an toàn thực phẩm theo quy định hiện hành.</p>
-                </div>
-                @endforelse
-            </div>
-        </div>
-    </section>
+    
     <section class="kl-equip" id="kl-about-equip" aria-labelledby="kl-equip-title">
         <div class="kl-equip__leaves" aria-hidden="true">
             <span>@include('partials.equip-art', ['type' => 'leaf'])</span>
@@ -740,6 +713,34 @@
         </div>
         <div class="kl-partners__leaves kl-partners__leaves--br" aria-hidden="true">
             <img src="/frontend/images/leaf.png" alt="">
+        </div>
+    </section>
+    <section class="kl-about__values">
+        <div class="container">
+            <h2 class="kl-about__values-title">Giá trị cốt lõi</h2>
+            <div class="kl-about__values-grid">
+                @forelse ($coreValues as $item)
+                <div class="kl-about__value">
+                    <div class="kl-about__value-icon" aria-hidden="true">
+                        @if (!empty($item->image))
+                        <img src="{{ url($item->image) }}" alt="{{ $item->title }}">
+                        @else
+                        @include('partials.about-icon', ['type' => 'shield'])
+                        @endif
+                    </div>
+                    <h3 class="kl-about__value-title">{{ $item->title }}</h3>
+                    <p class="kl-about__value-desc">{{ $item->description }}</p>
+                </div>
+                @empty
+                <div class="kl-about__value">
+                    <div class="kl-about__value-icon" aria-hidden="true">
+                        @include('partials.about-icon', ['type' => 'shield'])
+                    </div>
+                    <h3 class="kl-about__value-title">An toàn</h3>
+                    <p class="kl-about__value-desc">Đảm bảo vệ sinh an toàn thực phẩm theo quy định hiện hành.</p>
+                </div>
+                @endforelse
+            </div>
         </div>
     </section>
 </div>
